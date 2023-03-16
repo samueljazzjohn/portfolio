@@ -1,7 +1,6 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
+import Header from '@/components/Header'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -10,8 +9,23 @@ export default function Home() {
     <>
       <div>
         <Head>
-          <title className='text-red-500'> Jazz Portfolio </title>
+          <title> Jazz </title>
         </Head>
+        
+        {/* Header*/}
+        <Header/>
+
+        {/* Hero*/}
+
+        {/* About*/}
+
+        {/* Ecperience */}
+
+        {/* Skills*/}
+
+        {/* Projects*/}
+
+        {/* Contact Me*/}
       </div>
     </>
   )

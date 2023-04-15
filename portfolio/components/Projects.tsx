@@ -34,7 +34,7 @@ const Projects = ({projects}: Props) => {
                         </h4>
                         <div className='flex items-center justify-center space-x-4'>
                             {project.technologies.map((tech)=>(
-                                <Image key={tech._id} className='h-10 w-10 rounded-full' src={urlFor(tech.image).url()} alt="" />
+                                <img key={tech._id} className='h-10 w-10 rounded-full' src={urlFor(tech.image).url()} alt="" />
                                 ))}
                         </div>
                         <p className='text-lg text-center md:text-left'>

@@ -2,6 +2,7 @@ import React from 'react'
 import {motion} from 'framer-motion'
 import { Experience } from '@/typings'
 import { urlFor } from '@/sanity'
+import Image from 'next/image'
 
 type Props = {
   experience : Experience
@@ -32,7 +33,7 @@ function ExperienceCard({experience}: Props) {
         </div>
         <p className='uppercase py-5 text-gray-300'>{new Date(experience.dateStarted).toDateString() } -{" "} { experience.isCurrentlyWorkingHere ? "Present" : new Date(experience.dateEnded).toDateString()}</p>
         <ul className='list-disc text-lg space-y-4 ml-5'>
-          {experience.points.map((point)=><li>{point}</li>)}
+          {experience.points.map((point,i)=><li key={i}>{point}</li>)}
         </ul>
       </div>
     </article>

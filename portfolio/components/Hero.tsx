@@ -4,6 +4,7 @@ import Link from 'next/link'
 import React from 'react'
 import { Cursor, useTypewriter } from 'react-simple-typewriter'
 import BackgroundCircle from './BackgroundCircle'
+import Image from 'next/image'
 
 type Props = {
     pageinfo : Pageinfo

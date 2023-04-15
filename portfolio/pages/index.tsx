@@ -16,6 +16,7 @@ import { fetchExperiences } from '@/utils/fetchExperience'
 import { fetchProjects } from '@/utils/fetchProject'
 import { fetchSocials } from '@/utils/fetchSocials'
 import { urlFor } from '@/sanity'
+import Image from 'next/image'
 
 type Props = {
   pageInfo : Pageinfo;

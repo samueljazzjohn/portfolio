@@ -2,3 +2,4 @@
 .DS_Store
 
 /portfolio-backend/node_module
+.vercel

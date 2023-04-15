@@ -16,7 +16,7 @@ export default function Experiences({experience}: Props) {
     className='h-screen flex relative overflow-hidden flex-col text-left md:flex-row max-w-full px-10 justify-evenly mx-auto items-center' >
         <h3 className='absolute top-24 uppercase text-gray-500 tracking-[20px] text-2xl'>Experience</h3>
 
-        <div className='w-full flex space-x-5 lg:mt-10 overflow-x-scroll p-10 snap-x snap-mandatory scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80'>
+        <div className='-mb-[100px] md:-mb-[50px]  w-full flex space-x-5 lg:mt-10 overflow-x-scroll p-10 snap-x snap-mandatory scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80'>
             {experience?.map((experience)=><ExperienceCard key={experience._id} experience={experience}  />)}
             {/* <ExperienceCard />
             <ExperienceCard />

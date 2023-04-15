@@ -12,6 +12,21 @@ export default defineType({
             type:'string',
         }),
         defineField({
+            name:'email',
+            title:'Email',
+            type:'string',
+        }),
+        defineField({
+            name:'address',
+            title:'Address',
+            type:'string',
+        }),
+        defineField({
+            name:'phoneNumber',
+            title:'PhoneNumber',
+            type:'string',
+        }),
+        defineField({
             name:'role',
             title:'Role',
             type:'string',

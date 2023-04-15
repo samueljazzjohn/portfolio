@@ -29,7 +29,7 @@ const ContactMe = ({details}:props) => {
         <div className='flex flex-col lg:space-y-5 xl:space-y-10 mt-10'>
             <h4 className='text-4xl font-semibold text-center'>
                 I have got just what you need.{" "}
-                <span className='underline decoration-[#F7AB0A]/50'>Let's Talk</span>
+                <span className='underline decoration-[#F7AB0A]/50'>Let&apos;s Talk</span>
             </h4>
 
             <div className='mt-5 space-y-3 xl:space-y-10'>

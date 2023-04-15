@@ -1,11 +1,14 @@
 import React from 'react'
 import {motion } from 'framer-motion'
+import { Project } from '@/typings'
+import { urlFor } from '@/sanity'
 
-type Props = {}
+type Props = {
+    projects : Project[]
+}
 
-const Projects = (props: Props) => {
+const Projects = ({projects}: Props) => {
 
-    const projects = [1,2,3,4,5]
   return (
     <motion.div
     initial={{opacity:0}}
@@ -22,14 +25,19 @@ const Projects = (props: Props) => {
                     transition={{duration:1.2}}
                     whileInView={{opacity:1,y:0}}
                     viewport={{once:true}}
-                    className='w-50 h-60' src="https://img.freepik.com/premium-vector/chat-bot-dialog-windows-computer-tablet-laptop-screen_88138-612.jpg?w=1800" alt="" />
+                    className='w-50 h-60' src={urlFor(project.image).url()} alt="" />
                     
                     <div className='space-y-10 px-0 md:px-10 max-w-6xl'>
                         <h4 className='text-4xl font-semibold text-center'>
-                            <span className='underline decoration-[#F7AB0A]/50'>Case Study {i+1} of {projects.length}: </span>PGM App
+                            <span className='underline decoration-[#F7AB0A]/50'>Case Study {i+1} of {projects.length}: </span>{project.title}
                         </h4>
+                        <div className='flex items-center justify-center space-x-4'>
+                            {project.technologies.map((tech)=>(
+                                <img className='h-10 w-10 rounded-full' src={urlFor(tech.image).url()} alt="" />
+                                ))}
+                        </div>
                         <p className='text-lg text-center md:text-left'>
-                        It is basically a Web Application for a Christian organisation to manage churches and a study centre of it. MERN stack with redux toolkit is used to develop this application.
+                        {project.summary}
                         </p>
                     </div>
                 </div>

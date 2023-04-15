@@ -1,6 +1,7 @@
 import React from 'react'
 import { PhoneIcon,MapPinIcon,EnvelopeIcon } from '@heroicons/react/24/solid'
 import {useForm,SubmitHandler} from 'react-hook-form'
+import { Pageinfo } from '@/typings';
 
 type Inputs = {
     name:string ,
@@ -9,10 +10,12 @@ type Inputs = {
     message:string
 };
 
-type props ={};
+type props ={
+    details : Pageinfo
+};
 
 
-const ContactMe = ({}:props) => {
+const ContactMe = ({details}:props) => {
 
     const { register, handleSubmit, formState: { errors } } = useForm<Inputs>();
   const onSubmit : SubmitHandler<Inputs>  = (formData) =>{
@@ -32,16 +35,16 @@ const ContactMe = ({}:props) => {
             <div className='mt-5 space-y-3 xl:space-y-10'>
                 <div className='flex items-center space-x-5 justify-center'>
                     <PhoneIcon className='text-[#F7AB0A] h-7 w-7 animate-pulse' />
-                    <p className='text-2xl'>+91 7034491692</p>
+                    <p className='text-2xl'>{details.phoneNumber}</p>
                 </div>
 
                 <div className='flex items-center space-x-5 justify-center'>
                     <EnvelopeIcon className='text-[#F7AB0A] h-7 w-7 animate-pulse' />
-                    <p className='text-2xl'>samuelj.bethel@gmail.com</p>
+                    <p className='text-2xl'>{details.email}</p>
 
                 </div><div className='flex items-center space-x-5 justify-center'>
                     <MapPinIcon className='text-[#F7AB0A] h-7 w-7 animate-pulse' />
-                    <p className='text-2xl'>Calicut, Kerala, India</p>
+                    <p className='text-2xl'>{details.address}</p>
                 </div>
 
             </div>

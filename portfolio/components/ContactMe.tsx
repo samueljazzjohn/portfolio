@@ -2,6 +2,7 @@ import React from 'react'
 import { PhoneIcon,MapPinIcon,EnvelopeIcon } from '@heroicons/react/24/solid'
 import {useForm,SubmitHandler} from 'react-hook-form'
 import { Pageinfo } from '@/typings';
+import toast from 'react-hot-toast';
 
 type Inputs = {
     name:string ,
@@ -17,10 +18,28 @@ type props ={
 
 const ContactMe = ({details}:props) => {
 
-    const { register, handleSubmit, formState: { errors } } = useForm<Inputs>();
-  const onSubmit : SubmitHandler<Inputs>  = (formData) =>{
-    window.location.href = `mailto:samueljazzjohn@gmail?subject=${formData.subject}&body=Hi my name is ${formData.name}, ${formData.message} (${formData.email})`
-  };
+    const { register, handleSubmit, reset, formState: { errors } } = useForm<Inputs>();
+    const onSubmit: SubmitHandler<Inputs> = async (formData) => {
+        try {
+            const response = await fetch('/api/sendEmail', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(formData),
+            });
+      
+            if (response.ok) {
+              toast.success('Email sent successfully!');
+              reset()
+            } else {
+              toast.error('Failed to send email.');
+            }
+          } catch (error) {
+            console.error('Error:', error);
+            toast.error('An unexpected error occurred.');
+          }
+      };
   
     return (
     <div className='flex relative flex-col text-center md:text-left xl:flex-row max-w-7xl px-10 h-screen justify-evenly mx-auto items-center'>
@@ -57,7 +76,6 @@ const ContactMe = ({details}:props) => {
                 <textarea {...register('message')} placeholder='Message' className=' contactInput' />
                 <button type='submit' className=' bg-[#F7AB0A] py-2 xl:py-5 px-5 xl:px-10 rounded-md text-black font-bold text-lg'>Submit</button>
             </form>
-            
         </div>
         
     </div>

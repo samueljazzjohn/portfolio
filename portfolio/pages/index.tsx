@@ -16,7 +16,8 @@ import { fetchExperiences } from '@/utils/fetchExperience'
 import { fetchProjects } from '@/utils/fetchProject'
 import { fetchSocials } from '@/utils/fetchSocials'
 import { urlFor } from '@/sanity'
-import Image from 'next/image'
+import { Toaster } from 'react-hot-toast';
+
 
 type Props = {
   pageInfo : Pageinfo;
@@ -52,7 +53,7 @@ function Home({pageInfo,experience,skill,project,social}:Props) {
         </section>
 
         <section id='skills' className='snap-start'>
-          <Skills skills={skill}/>
+          <Skills initialSkills={skill}/>
         </section>
 
 
@@ -72,6 +73,7 @@ function Home({pageInfo,experience,skill,project,social}:Props) {
           </div>
           </footer>
         </Link>
+        <Toaster />
       </div>
     </>
   )

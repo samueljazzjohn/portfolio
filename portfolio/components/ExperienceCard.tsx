@@ -29,7 +29,7 @@ function ExperienceCard({experience}: Props) {
     <p className='font-bold text-xl sm:text-2xl mt-2 sm:mt-4 text-center md:text-left'>{experience.company}</p>
     <div className='flex flex-wrap justify-center md:justify-start space-x-2 my-2'>
       {experience?.technologies.map((tech) => (
-        <img key={tech._id} className='h-7 w-7 rounded-full' src={urlFor(tech.image).url()} alt={tech.name} title={tech.name} />
+        <img key={tech._id} className='h-7 w-7 rounded-full' src={urlFor(tech.image).url()} alt={tech.title} title={tech.title} />
       ))}
     </div>
     <p className='uppercase py-2 sm:py-5 text-gray-300 text-center md:text-left'>

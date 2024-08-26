@@ -1,5 +1,5 @@
 import { NextApiRequest,NextApiResponse } from "next";
-import { groq, SanityClient } from "next-sanity";
+import { groq } from "next-sanity";
 import {sanityClient} from '../../sanity'
 import {Project} from '../../typings'
 
